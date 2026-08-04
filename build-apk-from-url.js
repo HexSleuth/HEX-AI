@@ -17,9 +17,9 @@ const { Readable } = require('stream');
 const pipeline = promisify(require('stream').pipeline);
 
 // --- Configuration ---
-const TARGET_URL = process.argv[2] || 'https://hexsleuth.github.io/HEXAI-All-in-One/';
-const PROJECT_NAME = 'hexai-app';
-const OUTPUT_APK = './hexai-app.apk';
+const TARGET_URL = process.argv[2] || 'https://hexsleuth.github.io/hexai_webapp/';
+const PROJECT_NAME = 'hexai_webapp';
+const OUTPUT_APK = './hexai_webapp-app.apk';
 
 // --- Helper: Download a file ---
 function downloadFile(url, dest) {
