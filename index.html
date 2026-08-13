@@ -37,7 +37,7 @@
     <script src="video-bg-fix.js"></script>
     <style>
         /* ==========================================================================
-           CSS MULTI-THEME SYSTEM — 33 Themes (fully preserved)
+           CSS MULTI-THEME SYSTEM — 33 Themes + Rainbow (fully preserved)
            ========================================================================== */
         :root {
             --primary: #4b6bfb;
@@ -54,12 +54,25 @@
             --error: #f87272;
             --radius: 16px;
             --radius-sm: 10px;
+            --radius-xs: 8px;
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.12);
             --header-height: 64px;
             --bottom-nav-height: 72px;
             --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* ── Glow system ── */
+            --glow-primary: 0 0 20px rgba(75, 107, 251, 0.35);
+            --glow-secondary: 0 0 20px rgba(123, 146, 178, 0.30);
+            --glow-accent: 0 0 20px rgba(103, 203, 160, 0.35);
+            --glow-intensity: 1;
+            --glow-spread: 20px;
+            --glow-pulse-speed: 3s;
+            --glow-float-speed: 4s;
+            --glow-shimmer-speed: 3s;
         }
 
+        /* ── All 33 themes + Rainbow ── */
         [data-theme="cupcake"] {
             --primary: #65c3c8;
             --secondary: #ef9fbc;
@@ -73,8 +86,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(101, 195, 200, 0.40);
+            --glow-secondary: 0 0 25px rgba(239, 159, 188, 0.35);
+            --glow-accent: 0 0 25px rgba(238, 175, 58, 0.40);
         }
-
         [data-theme="bumblebee"] {
             --primary: #e0a82e;
             --secondary: #f9d72f;
@@ -88,8 +103,10 @@
             --success: #22c55e;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 25px rgba(224, 168, 46, 0.45);
+            --glow-secondary: 0 0 25px rgba(249, 215, 47, 0.40);
+            --glow-accent: 0 0 20px rgba(24, 24, 48, 0.30);
         }
-
         [data-theme="emerald"] {
             --primary: #66cc8a;
             --secondary: #377cfb;
@@ -103,8 +120,10 @@
             --success: #36d399;
             --warning: #fbbd23;
             --error: #f87272;
+            --glow-primary: 0 0 25px rgba(102, 204, 138, 0.45);
+            --glow-secondary: 0 0 25px rgba(55, 124, 251, 0.40);
+            --glow-accent: 0 0 25px rgba(234, 82, 52, 0.40);
         }
-
         [data-theme="corporate"] {
             --primary: #4b6bfb;
             --secondary: #7b92b2;
@@ -118,8 +137,10 @@
             --success: #36d399;
             --warning: #fbbd23;
             --error: #f87272;
+            --glow-primary: 0 0 25px rgba(75, 107, 251, 0.40);
+            --glow-secondary: 0 0 25px rgba(123, 146, 178, 0.35);
+            --glow-accent: 0 0 25px rgba(103, 203, 160, 0.40);
         }
-
         [data-theme="synthwave"] {
             --primary: #e779c1;
             --secondary: #58c7f3;
@@ -133,8 +154,10 @@
             --success: #71ead2;
             --warning: #f3cc30;
             --error: #e24056;
+            --glow-primary: 0 0 35px rgba(231, 121, 193, 0.55);
+            --glow-secondary: 0 0 35px rgba(88, 199, 243, 0.50);
+            --glow-accent: 0 0 35px rgba(243, 204, 48, 0.50);
         }
-
         [data-theme="retro"] {
             --primary: #ef9995;
             --secondary: #a4cbb4;
@@ -148,8 +171,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(239, 153, 149, 0.40);
+            --glow-secondary: 0 0 25px rgba(164, 203, 180, 0.35);
+            --glow-accent: 0 0 25px rgba(235, 220, 153, 0.40);
         }
-
         [data-theme="cyberpunk"] {
             --primary: #ff7598;
             --secondary: #75d1f0;
@@ -163,8 +188,10 @@
             --success: #009485;
             --warning: #ff9900;
             --error: #ff5724;
+            --glow-primary: 0 0 35px rgba(255, 117, 152, 0.55);
+            --glow-secondary: 0 0 35px rgba(117, 209, 240, 0.50);
+            --glow-accent: 0 0 35px rgba(192, 126, 236, 0.50);
         }
-
         [data-theme="valentine"] {
             --primary: #e96d7b;
             --secondary: #a991f7;
@@ -178,8 +205,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(233, 109, 123, 0.45);
+            --glow-secondary: 0 0 25px rgba(169, 145, 247, 0.40);
+            --glow-accent: 0 0 25px rgba(136, 219, 221, 0.40);
         }
-
         [data-theme="halloween"] {
             --primary: #f28c18;
             --secondary: #6d3a9c;
@@ -193,8 +222,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(242, 140, 24, 0.50);
+            --glow-secondary: 0 0 30px rgba(109, 58, 156, 0.45);
+            --glow-accent: 0 0 30px rgba(81, 168, 0, 0.45);
         }
-
         [data-theme="garden"] {
             --primary: #5c7f67;
             --secondary: #ecf4e7;
@@ -208,8 +239,10 @@
             --success: #2dd4bf;
             --warning: #f43f5e;
             --error: #e11d48;
+            --glow-primary: 0 0 25px rgba(92, 127, 103, 0.40);
+            --glow-secondary: 0 0 25px rgba(236, 244, 231, 0.30);
+            --glow-accent: 0 0 25px rgba(250, 229, 229, 0.30);
         }
-
         [data-theme="forest"] {
             --primary: #1eb854;
             --secondary: #1fd65f;
@@ -223,8 +256,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(30, 184, 84, 0.50);
+            --glow-secondary: 0 0 30px rgba(31, 214, 95, 0.45);
+            --glow-accent: 0 0 30px rgba(217, 147, 48, 0.45);
         }
-
         [data-theme="aqua"] {
             --primary: #09ecf3;
             --secondary: #966fb3;
@@ -238,8 +273,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 35px rgba(9, 236, 243, 0.55);
+            --glow-secondary: 0 0 35px rgba(150, 111, 179, 0.45);
+            --glow-accent: 0 0 35px rgba(255, 233, 153, 0.45);
         }
-
         [data-theme="lofi"] {
             --primary: #808080;
             --secondary: #4d4d4d;
@@ -253,8 +290,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 20px rgba(128, 128, 128, 0.30);
+            --glow-secondary: 0 0 20px rgba(77, 77, 77, 0.25);
+            --glow-accent: 0 0 20px rgba(26, 26, 26, 0.25);
         }
-
         [data-theme="pastel"] {
             --primary: #d1c1d7;
             --secondary: #f6cbd1;
@@ -268,8 +307,10 @@
             --success: #4ade80;
             --warning: #fbbf24;
             --error: #f87171;
+            --glow-primary: 0 0 25px rgba(209, 193, 215, 0.35);
+            --glow-secondary: 0 0 25px rgba(246, 203, 209, 0.30);
+            --glow-accent: 0 0 25px rgba(180, 233, 214, 0.35);
         }
-
         [data-theme="fantasy"] {
             --primary: #6e0b75;
             --secondary: #007ebd;
@@ -283,8 +324,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(110, 11, 117, 0.45);
+            --glow-secondary: 0 0 30px rgba(0, 126, 189, 0.40);
+            --glow-accent: 0 0 30px rgba(248, 134, 13, 0.45);
         }
-
         [data-theme="wireframe"] {
             --primary: #b8b8b8;
             --secondary: #b8b8b8;
@@ -298,8 +341,10 @@
             --success: #008000;
             --warning: #ffa500;
             --error: #ff0000;
+            --glow-primary: 0 0 20px rgba(184, 184, 184, 0.25);
+            --glow-secondary: 0 0 20px rgba(184, 184, 184, 0.20);
+            --glow-accent: 0 0 20px rgba(184, 184, 184, 0.20);
         }
-
         [data-theme="black"] {
             --primary: #333333;
             --secondary: #333333;
@@ -313,8 +358,10 @@
             --success: #22c55e;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 20px rgba(51, 51, 51, 0.30);
+            --glow-secondary: 0 0 20px rgba(51, 51, 51, 0.25);
+            --glow-accent: 0 0 20px rgba(51, 51, 51, 0.25);
         }
-
         [data-theme="luxury"] {
             --primary: #ffffff;
             --secondary: #152747;
@@ -328,8 +375,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(255, 255, 255, 0.40);
+            --glow-secondary: 0 0 30px rgba(21, 39, 71, 0.35);
+            --glow-accent: 0 0 30px rgba(81, 52, 72, 0.35);
         }
-
         [data-theme="dracula"] {
             --primary: #ff79c6;
             --secondary: #bd93f9;
@@ -343,8 +392,10 @@
             --success: #50fa7b;
             --warning: #f1fa8c;
             --error: #ff5555;
+            --glow-primary: 0 0 35px rgba(255, 121, 198, 0.55);
+            --glow-secondary: 0 0 35px rgba(189, 147, 249, 0.50);
+            --glow-accent: 0 0 35px rgba(255, 184, 108, 0.50);
         }
-
         [data-theme="cmyk"] {
             --primary: #45aeee;
             --secondary: #e8488a;
@@ -358,8 +409,10 @@
             --success: #82b04c;
             --warning: #e8b15d;
             --error: #d15656;
+            --glow-primary: 0 0 30px rgba(69, 174, 238, 0.45);
+            --glow-secondary: 0 0 30px rgba(232, 72, 138, 0.40);
+            --glow-accent: 0 0 30px rgba(255, 242, 50, 0.45);
         }
-
         [data-theme="autumn"] {
             --primary: #8c0327;
             --secondary: #d85251;
@@ -373,8 +426,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(140, 3, 39, 0.45);
+            --glow-secondary: 0 0 30px rgba(216, 82, 81, 0.40);
+            --glow-accent: 0 0 30px rgba(213, 155, 106, 0.40);
         }
-
         [data-theme="business"] {
             --primary: #1c4e80;
             --secondary: #7c909a;
@@ -388,8 +443,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(28, 78, 128, 0.45);
+            --glow-secondary: 0 0 30px rgba(124, 144, 154, 0.35);
+            --glow-accent: 0 0 30px rgba(234, 105, 71, 0.45);
         }
-
         [data-theme="acid"] {
             --primary: #ff00ff;
             --secondary: #ff7f00;
@@ -403,8 +460,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 40px rgba(255, 0, 255, 0.60);
+            --glow-secondary: 0 0 40px rgba(255, 127, 0, 0.55);
+            --glow-accent: 0 0 40px rgba(196, 255, 0, 0.55);
         }
-
         [data-theme="lemonade"] {
             --primary: #519903;
             --secondary: #e9e92e;
@@ -418,8 +477,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(81, 153, 3, 0.45);
+            --glow-secondary: 0 0 30px rgba(233, 233, 46, 0.40);
+            --glow-accent: 0 0 30px rgba(247, 249, 202, 0.35);
         }
-
         [data-theme="night"] {
             --primary: #38bdf8;
             --secondary: #818cf8;
@@ -433,8 +494,10 @@
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 35px rgba(56, 189, 248, 0.50);
+            --glow-secondary: 0 0 35px rgba(129, 140, 248, 0.45);
+            --glow-accent: 0 0 35px rgba(244, 114, 182, 0.45);
         }
-
         [data-theme="coffee"] {
             --primary: #db924b;
             --secondary: #263e3f;
@@ -448,8 +511,10 @@
             --success: #22c55e;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 30px rgba(219, 146, 75, 0.45);
+            --glow-secondary: 0 0 30px rgba(38, 62, 63, 0.35);
+            --glow-accent: 0 0 30px rgba(16, 87, 109, 0.40);
         }
-
         [data-theme="winter"] {
             --primary: #047aff;
             --secondary: #463aa2;
@@ -463,8 +528,10 @@
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 30px rgba(4, 122, 255, 0.45);
+            --glow-secondary: 0 0 30px rgba(70, 58, 162, 0.40);
+            --glow-accent: 0 0 30px rgba(193, 72, 172, 0.40);
         }
-
         [data-theme="dim"] {
             --primary: #9ca3af;
             --secondary: #6b7280;
@@ -478,8 +545,10 @@
             --success: #22c55e;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 25px rgba(156, 163, 175, 0.35);
+            --glow-secondary: 0 0 25px rgba(107, 114, 128, 0.30);
+            --glow-accent: 0 0 25px rgba(75, 85, 99, 0.30);
         }
-
         [data-theme="nord"] {
             --primary: #5e81ac;
             --secondary: #81a1c1;
@@ -493,8 +562,10 @@
             --success: #a3be8c;
             --warning: #ebcb8b;
             --error: #bf616a;
+            --glow-primary: 0 0 30px rgba(94, 129, 172, 0.40);
+            --glow-secondary: 0 0 30px rgba(129, 161, 193, 0.35);
+            --glow-accent: 0 0 30px rgba(136, 192, 208, 0.35);
         }
-
         [data-theme="sunset"] {
             --primary: #ff865b;
             --secondary: #fd6f9c;
@@ -508,8 +579,10 @@
             --success: #22c55e;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 35px rgba(255, 134, 91, 0.50);
+            --glow-secondary: 0 0 35px rgba(253, 111, 156, 0.45);
+            --glow-accent: 0 0 35px rgba(179, 135, 250, 0.45);
         }
-
         [data-theme="caramellatte"] {
             --primary: #d18f50;
             --secondary: #8e6844;
@@ -523,8 +596,10 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(209, 143, 80, 0.40);
+            --glow-secondary: 0 0 25px rgba(142, 104, 68, 0.35);
+            --glow-accent: 0 0 25px rgba(178, 88, 40, 0.40);
         }
-
         [data-theme="abyss"] {
             --primary: #0077b6;
             --secondary: #00b4d8;
@@ -538,8 +613,10 @@
             --success: #22c55e;
             --warning: #f59e0b;
             --error: #ef4444;
+            --glow-primary: 0 0 35px rgba(0, 119, 182, 0.50);
+            --glow-secondary: 0 0 35px rgba(0, 180, 216, 0.45);
+            --glow-accent: 0 0 35px rgba(144, 224, 239, 0.45);
         }
-
         [data-theme="silk"] {
             --primary: #ffc2d4;
             --secondary: #ffb5a7;
@@ -553,9 +630,1367 @@
             --success: #16a34a;
             --warning: #d97706;
             --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(255, 194, 212, 0.35);
+            --glow-secondary: 0 0 25px rgba(255, 181, 167, 0.30);
+            --glow-accent: 0 0 25px rgba(252, 213, 206, 0.30);
         }
 
-        /* ===== THEME OVERRIDES FOR MATERIAL 3 VARIABLES ===== */
+        /* ==========================================================================
+           🌈 RAINBOW THEME — Overrides all text with rainbow cycle
+           ========================================================================== */
+        [data-theme="rainbow"] {
+            --primary: #ff0000;
+            --secondary: #00ff00;
+            --accent: #0000ff;
+            --neutral: #1a1a1a;
+            --base-100: #0f0f12;
+            --base-200: #1a1a22;
+            --base-300: #2a2a35;
+            --base-content: #f0f0f5;
+            --glow-primary: 0 0 30px rgba(255, 0, 0, 0.5);
+            --glow-secondary: 0 0 30px rgba(0, 255, 0, 0.5);
+            --glow-accent: 0 0 30px rgba(0, 0, 255, 0.5);
+        }
+
+        /* Apply rainbow animation to all text elements & icons when Rainbow theme is active */
+        [data-theme="rainbow"] .glow-title,
+        [data-theme="rainbow"] .badge,
+        [data-theme="rainbow"] .nav-item.active span,
+        [data-theme="rainbow"] .heading-pulse,
+        [data-theme="rainbow"] .heading-breath,
+        [data-theme="rainbow"] .heading-shimmer,
+        [data-theme="rainbow"] .heading-flow,
+        [data-theme="rainbow"] .heading-sparkle,
+        [data-theme="rainbow"] .glow-text-pulse,
+        [data-theme="rainbow"] .glow-text-breath,
+        [data-theme="rainbow"] .glow-text-shimmer,
+        [data-theme="rainbow"] .glow-text-flow,
+        [data-theme="rainbow"] .glow-text-sparkle,
+        [data-theme="rainbow"] .glow-text-neon,
+        [data-theme="rainbow"] .glow-text-rainbow,
+        [data-theme="rainbow"] .demo-text,
+        [data-theme="rainbow"] .theme-swatch .swatch-label,
+        [data-theme="rainbow"] .color-picker-row label,
+        [data-theme="rainbow"] .app-header .logo i,
+        [data-theme="rainbow"] .app-bottom-nav .nav-item.active i,
+        [data-theme="rainbow"] .section-title i,
+        [data-theme="rainbow"] .demo-badge.glow,
+        [data-theme="rainbow"] .demo-badge.glow-secondary,
+        [data-theme="rainbow"] .demo-badge.glow-accent,
+        [data-theme="rainbow"] .demo-btn,
+        [data-theme="rainbow"] .demo-btn.secondary,
+        [data-theme="rainbow"] .demo-btn.accent {
+            animation: textRainbow 5s linear infinite !important;
+            color: #ff0000 !important;
+            text-shadow: 0 0 20px #ff0000, 0 0 60px #ff0000 !important;
+            -webkit-text-fill-color: initial !important;
+            background: none !important;
+            background-clip: initial !important;
+            border-color: #ff0000 !important;
+            box-shadow: 0 0 30px #ff0000 !important;
+        }
+
+        /* Rainbow theme specific overrides for buttons and badges */
+        [data-theme="rainbow"] .demo-btn {
+            background: transparent !important;
+            border: 2px solid #ff0000 !important;
+        }
+        [data-theme="rainbow"] .demo-btn.secondary {
+            border-color: #00ff00 !important;
+            box-shadow: 0 0 30px #00ff00 !important;
+        }
+        [data-theme="rainbow"] .demo-btn.accent {
+            border-color: #0000ff !important;
+            box-shadow: 0 0 30px #0000ff !important;
+        }
+        [data-theme="rainbow"] .demo-badge.glow {
+            background: transparent !important;
+            border: 1px solid #ff0000 !important;
+        }
+        [data-theme="rainbow"] .demo-badge.glow-secondary {
+            background: transparent !important;
+            border: 1px solid #00ff00 !important;
+        }
+        [data-theme="rainbow"] .demo-badge.glow-accent {
+            background: transparent !important;
+            border: 1px solid #0000ff !important;
+        }
+        [data-theme="rainbow"] .glow-card {
+            background: var(--base-200) !important;
+            border-color: #333 !important;
+        }
+
+        /* ==========================================================================
+           ADDED: ANIMATED RAINBOW EFFECT FOR THE SETTINGS DROPDOWN (when Rainbow theme is active)
+           ========================================================================== */
+        .rainbow-select {
+            animation: rainbowGlow 2s linear infinite !important;
+            color: #ffffff !important;
+            font-weight: bold !important;
+            border: 2px solid !important;
+            border-radius: var(--md-shape-sm) !important;
+            transition: none !important;
+        }
+        @keyframes rainbowGlow {
+            0%   { box-shadow: 0 0 5px #ff0000, 0 0 15px #ff0000; border-color: #ff0000; }
+            16%  { box-shadow: 0 0 5px #ff8800, 0 0 15px #ff8800; border-color: #ff8800; }
+            33%  { box-shadow: 0 0 5px #ffff00, 0 0 15px #ffff00; border-color: #ffff00; }
+            50%  { box-shadow: 0 0 5px #00ff00, 0 0 15px #00ff00; border-color: #00ff00; }
+            66%  { box-shadow: 0 0 5px #0088ff, 0 0 15px #0088ff; border-color: #0088ff; }
+            83%  { box-shadow: 0 0 5px #8800ff, 0 0 15px #8800ff; border-color: #8800ff; }
+            100% { box-shadow: 0 0 5px #ff0000, 0 0 15px #ff0000; border-color: #ff0000; }
+        }
+
+        /* ==========================================================================
+           ADDED: MISSING KEYFRAMES FOR textRainbow (reference for the rainbow text animation)
+           ========================================================================== */
+        @keyframes textRainbow {
+            0%   { color: #ff0000; text-shadow: 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            17%  { color: #ff8800; text-shadow: 0 0 20px #ff8800, 0 0 60px #ff8800; }
+            33%  { color: #ffff00; text-shadow: 0 0 20px #ffff00, 0 0 60px #ffff00; }
+            50%  { color: #00ff00; text-shadow: 0 0 20px #00ff00, 0 0 60px #00ff00; }
+            67%  { color: #0088ff; text-shadow: 0 0 20px #0088ff, 0 0 60px #0088ff; }
+            83%  { color: #8800ff; text-shadow: 0 0 20px #8800ff, 0 0 60px #8800ff; }
+            100% { color: #ff0000; text-shadow: 0 0 20px #ff0000, 0 0 60px #ff0000; }
+        }
+
+        /* ================================================================
+        JAVASCRIPT
+        ================================================================ */
+        <script>
+        (function() {
+            'use strict';
+
+            // ── THEME SYSTEM (33 + Rainbow + Custom) ──
+            const THEMES = [
+                'corporate', 'cupcake', 'bumblebee', 'emerald', 'synthwave',
+                'retro', 'cyberpunk', 'valentine', 'halloween', 'garden',
+                'forest', 'aqua', 'lofi', 'pastel', 'fantasy',
+                'wireframe', 'black', 'luxury', 'dracula', 'cmyk',
+                'autumn', 'business', 'acid', 'lemonade', 'night',
+                'coffee', 'winter', 'dim', 'nord', 'sunset',
+                'caramellatte', 'abyss', 'silk', 'rainbow', 'custom'
+            ];
+
+            const THEME_SWATCHES = {
+                corporate: ['#4b6bfb', '#7b92b2', '#67cba0', '#181a2a'],
+                cupcake: ['#65c3c8', '#ef9fbc', '#eeaf3a', '#291334'],
+                bumblebee: ['#e0a82e', '#f9d72f', '#181830', '#181830'],
+                emerald: ['#66cc8a', '#377cfb', '#ea5234', '#333c4d'],
+                synthwave: ['#e779c1', '#58c7f3', '#f3cc30', '#20134e'],
+                retro: ['#ef9995', '#a4cbb4', '#ebdc99', '#7d7259'],
+                cyberpunk: ['#ff7598', '#75d1f0', '#c07eec', '#423f00'],
+                valentine: ['#e96d7b', '#a991f7', '#88dbdd', '#af4670'],
+                halloween: ['#f28c18', '#6d3a9c', '#51a800', '#1b1d1d'],
+                garden: ['#5c7f67', '#ecf4e7', '#fae5e5', '#5d5656'],
+                forest: ['#1eb854', '#1fd65f', '#d99330', '#110e0e'],
+                aqua: ['#09ecf3', '#966fb3', '#ffe999', '#3b8ea5'],
+                lofi: ['#808080', '#4d4d4d', '#1a1a1a', '#000000'],
+                pastel: ['#d1c1d7', '#f6cbd1', '#b4e9d6', '#70acc7'],
+                fantasy: ['#6e0b75', '#007ebd', '#f8860d', '#1f2937'],
+                wireframe: ['#b8b8b8', '#b8b8b8', '#b8b8b8', '#ebebeb'],
+                black: ['#333333', '#333333', '#333333', '#141414'],
+                luxury: ['#ffffff', '#152747', '#513448', '#331800'],
+                dracula: ['#ff79c6', '#bd93f9', '#ffb86c', '#414558'],
+                cmyk: ['#45aeee', '#e8488a', '#fff232', '#1a1a1a'],
+                autumn: ['#8c0327', '#d85251', '#d59b6a', '#826a5c'],
+                business: ['#1c4e80', '#7c909a', '#ea6947', '#23282e'],
+                acid: ['#ff00ff', '#ff7f00', '#c4ff00', '#150f82'],
+                lemonade: ['#519903', '#e9e92e', '#f7f9ca', '#191a3f'],
+                night: ['#38bdf8', '#818cf8', '#f472b6', '#1e293b'],
+                coffee: ['#db924b', '#263e3f', '#10576d', '#120c12'],
+                winter: ['#047aff', '#463aa2', '#c148ac', '#021431'],
+                dim: ['#9ca3af', '#6b7280', '#4b5563', '#374151'],
+                nord: ['#5e81ac', '#81a1c1', '#88c0d0', '#4c566a'],
+                sunset: ['#ff865b', '#fd6f9c', '#b387fa', '#1b1626'],
+                caramellatte: ['#d18f50', '#8e6844', '#b25828', '#3b2c23'],
+                abyss: ['#0077b6', '#00b4d8', '#90e0ef', '#03045e'],
+                silk: ['#ffc2d4', '#ffb5a7', '#fcd5ce', '#e8e8e4'],
+                rainbow: ['#ff0000', '#00ff00', '#0000ff', '#1a1a1a'],
+                custom: ['#888888', '#666666', '#444444', '#222222']
+            };
+
+            let currentTheme = 'corporate';
+            let glowIntensity = 1;
+            let glowEnabled = true;
+            let rainbowInterval = null;
+
+            // ── RAINBOW RANDOMIZER (upgrade: truly random animated colours) ──
+            function startRainbowRandomizer() {
+                stopRainbowRandomizer();
+
+                // Apply animated glow to the Settings dropdown
+                const sel = document.getElementById('themeAppearanceSelect');
+                if (sel) sel.classList.add('rainbow-select');
+
+                // Randomise CSS variables every 1.5 seconds
+                rainbowInterval = setInterval(() => {
+                    const root = document.documentElement;
+                    const h1 = Math.floor(Math.random() * 360);
+                    const h2 = (h1 + 120) % 360;
+                    const h3 = (h1 + 240) % 360;
+                    const primary = `hsl(${h1}, 90%, 60%)`;
+                    const secondary = `hsl(${h2}, 80%, 55%)`;
+                    const accent = `hsl(${h3}, 85%, 65%)`;
+
+                    root.style.setProperty('--primary', primary);
+                    root.style.setProperty('--secondary', secondary);
+                    root.style.setProperty('--accent', accent);
+                    root.style.setProperty('--glow-primary', `0 0 30px ${primary}40`);
+                    root.style.setProperty('--glow-secondary', `0 0 30px ${secondary}40`);
+                    root.style.setProperty('--glow-accent', `0 0 30px ${accent}40`);
+
+                    // Update Material 3 variables
+                    root.style.setProperty('--md-primary', primary);
+                    root.style.setProperty('--md-secondary', secondary);
+                    root.style.setProperty('--md-tertiary', accent);
+                }, 1500);
+            }
+
+            function stopRainbowRandomizer() {
+                if (rainbowInterval) {
+                    clearInterval(rainbowInterval);
+                    rainbowInterval = null;
+                }
+                const sel = document.getElementById('themeAppearanceSelect');
+                if (sel) sel.classList.remove('rainbow-select');
+            }
+
+            // ── THEME ENGINE (patched to use randomizer) ──
+            const ThemeEngine = {
+                init(options = {}) {
+                    const savedTheme = localStorage.getItem('hexai_theme_appearance') || 'corporate';
+                    const sel = document.getElementById('themeAppearanceSelect');
+                    if (sel) {
+                        sel.value = savedTheme;
+                        this.applyThemeAppearance(savedTheme);
+                    }
+                },
+
+                applyThemeAppearance(theme) {
+                    const root = document.documentElement;
+                    // Stop rainbow if switching away
+                    stopRainbowRandomizer();
+
+                    if (theme === 'custom') {
+                        // Custom is handled separately via color picker
+                        // fallback to corporate if no custom data
+                        root.setAttribute('data-theme', 'custom');
+                        // ... (custom logic is outside, but we'll keep it minimal)
+                    } else if (theme === 'rainbow') {
+                        // Set base rainbow colours, then start the randomizer
+                        root.setAttribute('data-theme', 'rainbow');
+                        // Reset inline styles to let CSS variables take over from :root
+                        root.style.removeProperty('--primary');
+                        root.style.removeProperty('--secondary');
+                        root.style.removeProperty('--accent');
+                        root.style.removeProperty('--glow-primary');
+                        root.style.removeProperty('--glow-secondary');
+                        root.style.removeProperty('--glow-accent');
+                        root.style.removeProperty('--md-primary');
+                        root.style.removeProperty('--md-secondary');
+                        root.style.removeProperty('--md-tertiary');
+                        // Start the random animated colour cycle
+                        startRainbowRandomizer();
+                    } else {
+                        root.setAttribute('data-theme', theme);
+                        // Clear any residual inline styles
+                        root.style.removeProperty('--primary');
+                        root.style.removeProperty('--secondary');
+                        root.style.removeProperty('--accent');
+                        root.style.removeProperty('--glow-primary');
+                        root.style.removeProperty('--glow-secondary');
+                        root.style.removeProperty('--glow-accent');
+                        root.style.removeProperty('--md-primary');
+                        root.style.removeProperty('--md-secondary');
+                        root.style.removeProperty('--md-tertiary');
+                        // Re-sync swatches
+                    }
+                    localStorage.setItem('hexai_theme_appearance', theme);
+                    // sync swatches
+                    document.querySelectorAll('.swatch').forEach(s => {
+                        s.classList.toggle('active', s.dataset.theme === theme);
+                    });
+                    const sel = document.getElementById('themeAppearanceSelect');
+                    if (sel) sel.value = theme;
+                }
+            };
+
+            // Expose to global
+            window.ThemeEngine = ThemeEngine;
+            window.startRainbowRandomizer = startRainbowRandomizer;
+            window.stopRainbowRandomizer = stopRainbowRandomizer;
+        })();
+        </script>
+    </style>
+    <!-- ================================================================
+    JAVASCRIPT
+    ================================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ── THEME SYSTEM (33 + Rainbow + Custom) ──
+            const THEMES = [
+                'corporate', 'cupcake', 'bumblebee', 'emerald', 'synthwave',
+                'retro', 'cyberpunk', 'valentine', 'halloween', 'garden',
+                'forest', 'aqua', 'lofi', 'pastel', 'fantasy',
+                'wireframe', 'black', 'luxury', 'dracula', 'cmyk',
+                'autumn', 'business', 'acid', 'lemonade', 'night',
+                'coffee', 'winter', 'dim', 'nord', 'sunset',
+                'caramellatte', 'abyss', 'silk', 'rainbow', 'custom'
+            ];
+
+            const THEME_SWATCHES = {
+                corporate: ['#4b6bfb', '#7b92b2', '#67cba0', '#181a2a'],
+                cupcake: ['#65c3c8', '#ef9fbc', '#eeaf3a', '#291334'],
+                bumblebee: ['#e0a82e', '#f9d72f', '#181830', '#181830'],
+                emerald: ['#66cc8a', '#377cfb', '#ea5234', '#333c4d'],
+                synthwave: ['#e779c1', '#58c7f3', '#f3cc30', '#20134e'],
+                retro: ['#ef9995', '#a4cbb4', '#ebdc99', '#7d7259'],
+                cyberpunk: ['#ff7598', '#75d1f0', '#c07eec', '#423f00'],
+                valentine: ['#e96d7b', '#a991f7', '#88dbdd', '#af4670'],
+                halloween: ['#f28c18', '#6d3a9c', '#51a800', '#1b1d1d'],
+                garden: ['#5c7f67', '#ecf4e7', '#fae5e5', '#5d5656'],
+                forest: ['#1eb854', '#1fd65f', '#d99330', '#110e0e'],
+                aqua: ['#09ecf3', '#966fb3', '#ffe999', '#3b8ea5'],
+                lofi: ['#808080', '#4d4d4d', '#1a1a1a', '#000000'],
+                pastel: ['#d1c1d7', '#f6cbd1', '#b4e9d6', '#70acc7'],
+                fantasy: ['#6e0b75', '#007ebd', '#f8860d', '#1f2937'],
+                wireframe: ['#b8b8b8', '#b8b8b8', '#b8b8b8', '#ebebeb'],
+                black: ['#333333', '#333333', '#333333', '#141414'],
+                luxury: ['#ffffff', '#152747', '#513448', '#331800'],
+                dracula: ['#ff79c6', '#bd93f9', '#ffb86c', '#414558'],
+                cmyk: ['#45aeee', '#e8488a', '#fff232', '#1a1a1a'],
+                autumn: ['#8c0327', '#d85251', '#d59b6a', '#826a5c'],
+                business: ['#1c4e80', '#7c909a', '#ea6947', '#23282e'],
+                acid: ['#ff00ff', '#ff7f00', '#c4ff00', '#150f82'],
+                lemonade: ['#519903', '#e9e92e', '#f7f9ca', '#191a3f'],
+                night: ['#38bdf8', '#818cf8', '#f472b6', '#1e293b'],
+                coffee: ['#db924b', '#263e3f', '#10576d', '#120c12'],
+                winter: ['#047aff', '#463aa2', '#c148ac', '#021431'],
+                dim: ['#9ca3af', '#6b7280', '#4b5563', '#374151'],
+                nord: ['#5e81ac', '#81a1c1', '#88c0d0', '#4c566a'],
+                sunset: ['#ff865b', '#fd6f9c', '#b387fa', '#1b1626'],
+                caramellatte: ['#d18f50', '#8e6844', '#b25828', '#3b2c23'],
+                abyss: ['#0077b6', '#00b4d8', '#90e0ef', '#03045e'],
+                silk: ['#ffc2d4', '#ffb5a7', '#fcd5ce', '#e8e8e4'],
+                rainbow: ['#ff0000', '#00ff00', '#0000ff', '#1a1a1a'],
+                custom: ['#888888', '#666666', '#444444', '#222222']
+            };
+
+            let currentTheme = 'corporate';
+            let glowIntensity = 1;
+            let glowEnabled = true;
+            let rainbowInterval = null;
+
+            // ── RAINBOW RANDOMIZER (upgrade: truly random animated colours) ──
+            function startRainbowRandomizer() {
+                stopRainbowRandomizer();
+
+                // Apply animated glow to the Settings dropdown
+                const sel = document.getElementById('themeAppearanceSelect');
+                if (sel) sel.classList.add('rainbow-select');
+
+                // Randomise CSS variables every 1.5 seconds
+                rainbowInterval = setInterval(() => {
+                    const root = document.documentElement;
+                    const h1 = Math.floor(Math.random() * 360);
+                    const h2 = (h1 + 120) % 360;
+                    const h3 = (h1 + 240) % 360;
+                    const primary = `hsl(${h1}, 90%, 60%)`;
+                    const secondary = `hsl(${h2}, 80%, 55%)`;
+                    const accent = `hsl(${h3}, 85%, 65%)`;
+
+                    root.style.setProperty('--primary', primary);
+                    root.style.setProperty('--secondary', secondary);
+                    root.style.setProperty('--accent', accent);
+                    root.style.setProperty('--glow-primary', `0 0 30px ${primary}40`);
+                    root.style.setProperty('--glow-secondary', `0 0 30px ${secondary}40`);
+                    root.style.setProperty('--glow-accent', `0 0 30px ${accent}40`);
+
+                    // Update Material 3 variables
+                    root.style.setProperty('--md-primary', primary);
+                    root.style.setProperty('--md-secondary', secondary);
+                    root.style.setProperty('--md-tertiary', accent);
+                }, 1500);
+            }
+
+            function stopRainbowRandomizer() {
+                if (rainbowInterval) {
+                    clearInterval(rainbowInterval);
+                    rainbowInterval = null;
+                }
+                const sel = document.getElementById('themeAppearanceSelect');
+                if (sel) sel.classList.remove('rainbow-select');
+            }
+
+            // ── THEME ENGINE (patched to use randomizer) ──
+            const ThemeEngine = {
+                init(options = {}) {
+                    const savedTheme = localStorage.getItem('hexai_theme_appearance') || 'corporate';
+                    const sel = document.getElementById('themeAppearanceSelect');
+                    if (sel) {
+                        sel.value = savedTheme;
+                        this.applyThemeAppearance(savedTheme);
+                    }
+                },
+
+                applyThemeAppearance(theme) {
+                    const root = document.documentElement;
+                    // Stop rainbow if switching away
+                    stopRainbowRandomizer();
+
+                    if (theme === 'custom') {
+                        // Custom is handled separately via color picker
+                        // fallback to corporate if no custom data
+                        root.setAttribute('data-theme', 'custom');
+                        // ... (custom logic is outside, but we'll keep it minimal)
+                    } else if (theme === 'rainbow') {
+                        // Set base rainbow colours, then start the randomizer
+                        root.setAttribute('data-theme', 'rainbow');
+                        // Reset inline styles to let CSS variables take over from :root
+                        root.style.removeProperty('--primary');
+                        root.style.removeProperty('--secondary');
+                        root.style.removeProperty('--accent');
+                        root.style.removeProperty('--glow-primary');
+                        root.style.removeProperty('--glow-secondary');
+                        root.style.removeProperty('--glow-accent');
+                        root.style.removeProperty('--md-primary');
+                        root.style.removeProperty('--md-secondary');
+                        root.style.removeProperty('--md-tertiary');
+                        // Start the random animated colour cycle
+                        startRainbowRandomizer();
+                    } else {
+                        root.setAttribute('data-theme', theme);
+                        // Clear any residual inline styles
+                        root.style.removeProperty('--primary');
+                        root.style.removeProperty('--secondary');
+                        root.style.removeProperty('--accent');
+                        root.style.removeProperty('--glow-primary');
+                        root.style.removeProperty('--glow-secondary');
+                        root.style.removeProperty('--glow-accent');
+                        root.style.removeProperty('--md-primary');
+                        root.style.removeProperty('--md-secondary');
+                        root.style.removeProperty('--md-tertiary');
+                        // Re-sync swatches
+                    }
+                    localStorage.setItem('hexai_theme_appearance', theme);
+                    // sync swatches
+                    document.querySelectorAll('.swatch').forEach(s => {
+                        s.classList.toggle('active', s.dataset.theme === theme);
+                    });
+                    const sel = document.getElementById('themeAppearanceSelect');
+                    if (sel) sel.value = theme;
+                }
+            };
+
+            // Expose to global
+            window.ThemeEngine = ThemeEngine;
+            window.startRainbowRandomizer = startRainbowRandomizer;
+            window.stopRainbowRandomizer = stopRainbowRandomizer;
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.4.0/color-thief.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.7/jsmediatags.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <style>
+        /* ==========================================================================
+           CSS MULTI-THEME SYSTEM — 33 Themes + Rainbow (fully preserved)
+           ========================================================================== */
+        :root {
+            --primary: #4b6bfb;
+            --secondary: #7b92b2;
+            --accent: #67cba0;
+            --neutral: #181a2a;
+            --base-100: #ffffff;
+            --base-200: #f2f2f2;
+            --base-300: #e6e6e6;
+            --base-content: #181a2a;
+            --info: #3abff8;
+            --success: #36d399;
+            --warning: #fbbd23;
+            --error: #f87272;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 8px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.12);
+            --header-height: 64px;
+            --bottom-nav-height: 72px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* ── Glow system ── */
+            --glow-primary: 0 0 20px rgba(75, 107, 251, 0.35);
+            --glow-secondary: 0 0 20px rgba(123, 146, 178, 0.30);
+            --glow-accent: 0 0 20px rgba(103, 203, 160, 0.35);
+            --glow-intensity: 1;
+            --glow-spread: 20px;
+            --glow-pulse-speed: 3s;
+            --glow-float-speed: 4s;
+            --glow-shimmer-speed: 3s;
+        }
+
+        /* ── All 33 themes + Rainbow ── */
+        [data-theme="cupcake"] {
+            --primary: #65c3c8;
+            --secondary: #ef9fbc;
+            --accent: #eeaf3a;
+            --neutral: #291334;
+            --base-100: #faf7f5;
+            --base-200: #efeae6;
+            --base-300: #e7e2df;
+            --base-content: #291334;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(101, 195, 200, 0.40);
+            --glow-secondary: 0 0 25px rgba(239, 159, 188, 0.35);
+            --glow-accent: 0 0 25px rgba(238, 175, 58, 0.40);
+        }
+        [data-theme="bumblebee"] {
+            --primary: #e0a82e;
+            --secondary: #f9d72f;
+            --accent: #181830;
+            --neutral: #181830;
+            --base-100: #ffffff;
+            --base-200: #f2f2f2;
+            --base-300: #e6e6e6;
+            --base-content: #181830;
+            --info: #3b82f6;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 25px rgba(224, 168, 46, 0.45);
+            --glow-secondary: 0 0 25px rgba(249, 215, 47, 0.40);
+            --glow-accent: 0 0 20px rgba(24, 24, 48, 0.30);
+        }
+        [data-theme="emerald"] {
+            --primary: #66cc8a;
+            --secondary: #377cfb;
+            --accent: #ea5234;
+            --neutral: #333c4d;
+            --base-100: #ffffff;
+            --base-200: #f9fafb;
+            --base-300: #f3f4f6;
+            --base-content: #333c4d;
+            --info: #3abff8;
+            --success: #36d399;
+            --warning: #fbbd23;
+            --error: #f87272;
+            --glow-primary: 0 0 25px rgba(102, 204, 138, 0.45);
+            --glow-secondary: 0 0 25px rgba(55, 124, 251, 0.40);
+            --glow-accent: 0 0 25px rgba(234, 82, 52, 0.40);
+        }
+        [data-theme="corporate"] {
+            --primary: #4b6bfb;
+            --secondary: #7b92b2;
+            --accent: #67cba0;
+            --neutral: #181a2a;
+            --base-100: #ffffff;
+            --base-200: #f3f4f6;
+            --base-300: #d1d5db;
+            --base-content: #181a2a;
+            --info: #3abff8;
+            --success: #36d399;
+            --warning: #fbbd23;
+            --error: #f87272;
+            --glow-primary: 0 0 25px rgba(75, 107, 251, 0.40);
+            --glow-secondary: 0 0 25px rgba(123, 146, 178, 0.35);
+            --glow-accent: 0 0 25px rgba(103, 203, 160, 0.40);
+        }
+        [data-theme="synthwave"] {
+            --primary: #e779c1;
+            --secondary: #58c7f3;
+            --accent: #f3cc30;
+            --neutral: #20134e;
+            --base-100: #2d1b69;
+            --base-200: #21144f;
+            --base-300: #150d33;
+            --base-content: #f9f7fd;
+            --info: #53c0f3;
+            --success: #71ead2;
+            --warning: #f3cc30;
+            --error: #e24056;
+            --glow-primary: 0 0 35px rgba(231, 121, 193, 0.55);
+            --glow-secondary: 0 0 35px rgba(88, 199, 243, 0.50);
+            --glow-accent: 0 0 35px rgba(243, 204, 48, 0.50);
+        }
+        [data-theme="retro"] {
+            --primary: #ef9995;
+            --secondary: #a4cbb4;
+            --accent: #ebdc99;
+            --neutral: #7d7259;
+            --base-100: #e4d8b4;
+            --base-200: #d2c59d;
+            --base-300: #c1b386;
+            --base-content: #282425;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(239, 153, 149, 0.40);
+            --glow-secondary: 0 0 25px rgba(164, 203, 180, 0.35);
+            --glow-accent: 0 0 25px rgba(235, 220, 153, 0.40);
+        }
+        [data-theme="cyberpunk"] {
+            --primary: #ff7598;
+            --secondary: #75d1f0;
+            --accent: #c07eec;
+            --neutral: #423f00;
+            --base-100: #ffee00;
+            --base-200: #dbcd00;
+            --base-300: #b8ab00;
+            --base-content: #282425;
+            --info: #2094f3;
+            --success: #009485;
+            --warning: #ff9900;
+            --error: #ff5724;
+            --glow-primary: 0 0 35px rgba(255, 117, 152, 0.55);
+            --glow-secondary: 0 0 35px rgba(117, 209, 240, 0.50);
+            --glow-accent: 0 0 35px rgba(192, 126, 236, 0.50);
+        }
+        [data-theme="valentine"] {
+            --primary: #e96d7b;
+            --secondary: #a991f7;
+            --accent: #88dbdd;
+            --neutral: #af4670;
+            --base-100: #f0d6eb;
+            --base-200: #e1c3da;
+            --base-300: #d1b1ca;
+            --base-content: #632c3b;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(233, 109, 123, 0.45);
+            --glow-secondary: 0 0 25px rgba(169, 145, 247, 0.40);
+            --glow-accent: 0 0 25px rgba(136, 219, 221, 0.40);
+        }
+        [data-theme="halloween"] {
+            --primary: #f28c18;
+            --secondary: #6d3a9c;
+            --accent: #51a800;
+            --neutral: #1b1d1d;
+            --base-100: #212121;
+            --base-200: #171717;
+            --base-300: #0d0d0d;
+            --base-content: #ffffff;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(242, 140, 24, 0.50);
+            --glow-secondary: 0 0 30px rgba(109, 58, 156, 0.45);
+            --glow-accent: 0 0 30px rgba(81, 168, 0, 0.45);
+        }
+        [data-theme="garden"] {
+            --primary: #5c7f67;
+            --secondary: #ecf4e7;
+            --accent: #fae5e5;
+            --neutral: #5d5656;
+            --base-100: #e9e7e7;
+            --base-200: #d1cfcf;
+            --base-300: #b8b6b6;
+            --base-content: #100f0f;
+            --info: #0ca5e9;
+            --success: #2dd4bf;
+            --warning: #f43f5e;
+            --error: #e11d48;
+            --glow-primary: 0 0 25px rgba(92, 127, 103, 0.40);
+            --glow-secondary: 0 0 25px rgba(236, 244, 231, 0.30);
+            --glow-accent: 0 0 25px rgba(250, 229, 229, 0.30);
+        }
+        [data-theme="forest"] {
+            --primary: #1eb854;
+            --secondary: #1fd65f;
+            --accent: #d99330;
+            --neutral: #110e0e;
+            --base-100: #171212;
+            --base-200: #0e0a0a;
+            --base-300: #000000;
+            --base-content: #ffffff;
+            --info: #0284c7;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(30, 184, 84, 0.50);
+            --glow-secondary: 0 0 30px rgba(31, 214, 95, 0.45);
+            --glow-accent: 0 0 30px rgba(217, 147, 48, 0.45);
+        }
+        [data-theme="aqua"] {
+            --primary: #09ecf3;
+            --secondary: #966fb3;
+            --accent: #ffe999;
+            --neutral: #3b8ea5;
+            --base-100: #345c72;
+            --base-200: #294c60;
+            --base-300: #1f3b4d;
+            --base-content: #ffffff;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 35px rgba(9, 236, 243, 0.55);
+            --glow-secondary: 0 0 35px rgba(150, 111, 179, 0.45);
+            --glow-accent: 0 0 35px rgba(255, 233, 153, 0.45);
+        }
+        [data-theme="lofi"] {
+            --primary: #808080;
+            --secondary: #4d4d4d;
+            --accent: #1a1a1a;
+            --neutral: #000000;
+            --base-100: #ffffff;
+            --base-200: #f2f2f2;
+            --base-300: #e6e6e6;
+            --base-content: #000000;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 20px rgba(128, 128, 128, 0.30);
+            --glow-secondary: 0 0 20px rgba(77, 77, 77, 0.25);
+            --glow-accent: 0 0 20px rgba(26, 26, 26, 0.25);
+        }
+        [data-theme="pastel"] {
+            --primary: #d1c1d7;
+            --secondary: #f6cbd1;
+            --accent: #b4e9d6;
+            --neutral: #70acc7;
+            --base-100: #ffffff;
+            --base-200: #f2f2f2;
+            --base-300: #e6e6e6;
+            --base-content: #898d90;
+            --info: #38bdf8;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --error: #f87171;
+            --glow-primary: 0 0 25px rgba(209, 193, 215, 0.35);
+            --glow-secondary: 0 0 25px rgba(246, 203, 209, 0.30);
+            --glow-accent: 0 0 25px rgba(180, 233, 214, 0.35);
+        }
+        [data-theme="fantasy"] {
+            --primary: #6e0b75;
+            --secondary: #007ebd;
+            --accent: #f8860d;
+            --neutral: #1f2937;
+            --base-100: #ffffff;
+            --base-200: #f9fafb;
+            --base-300: #f3f4f6;
+            --base-content: #1f2937;
+            --info: #0284c7;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(110, 11, 117, 0.45);
+            --glow-secondary: 0 0 30px rgba(0, 126, 189, 0.40);
+            --glow-accent: 0 0 30px rgba(248, 134, 13, 0.45);
+        }
+        [data-theme="wireframe"] {
+            --primary: #b8b8b8;
+            --secondary: #b8b8b8;
+            --accent: #b8b8b8;
+            --neutral: #ebebeb;
+            --base-100: #ffffff;
+            --base-200: #eeeeee;
+            --base-300: #dddddd;
+            --base-content: #000000;
+            --info: #0000ff;
+            --success: #008000;
+            --warning: #ffa500;
+            --error: #ff0000;
+            --glow-primary: 0 0 20px rgba(184, 184, 184, 0.25);
+            --glow-secondary: 0 0 20px rgba(184, 184, 184, 0.20);
+            --glow-accent: 0 0 20px rgba(184, 184, 184, 0.20);
+        }
+        [data-theme="black"] {
+            --primary: #333333;
+            --secondary: #333333;
+            --accent: #333333;
+            --neutral: #141414;
+            --base-100: #000000;
+            --base-200: #111111;
+            --base-300: #222222;
+            --base-content: #ffffff;
+            --info: #3b82f6;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 20px rgba(51, 51, 51, 0.30);
+            --glow-secondary: 0 0 20px rgba(51, 51, 51, 0.25);
+            --glow-accent: 0 0 20px rgba(51, 51, 51, 0.25);
+        }
+        [data-theme="luxury"] {
+            --primary: #ffffff;
+            --secondary: #152747;
+            --accent: #513448;
+            --neutral: #331800;
+            --base-100: #09090b;
+            --base-200: #171618;
+            --base-300: #2e2d31;
+            --base-content: #dca54c;
+            --info: #0284c7;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(255, 255, 255, 0.40);
+            --glow-secondary: 0 0 30px rgba(21, 39, 71, 0.35);
+            --glow-accent: 0 0 30px rgba(81, 52, 72, 0.35);
+        }
+        [data-theme="dracula"] {
+            --primary: #ff79c6;
+            --secondary: #bd93f9;
+            --accent: #ffb86c;
+            --neutral: #414558;
+            --base-100: #282a36;
+            --base-200: #191a21;
+            --base-300: #0d0d12;
+            --base-content: #f8f8f2;
+            --info: #8be9fd;
+            --success: #50fa7b;
+            --warning: #f1fa8c;
+            --error: #ff5555;
+            --glow-primary: 0 0 35px rgba(255, 121, 198, 0.55);
+            --glow-secondary: 0 0 35px rgba(189, 147, 249, 0.50);
+            --glow-accent: 0 0 35px rgba(255, 184, 108, 0.50);
+        }
+        [data-theme="cmyk"] {
+            --primary: #45aeee;
+            --secondary: #e8488a;
+            --accent: #fff232;
+            --neutral: #1a1a1a;
+            --base-100: #ffffff;
+            --base-200: #f2f2f2;
+            --base-300: #e6e6e6;
+            --base-content: #1a1a1a;
+            --info: #4aa8c0;
+            --success: #82b04c;
+            --warning: #e8b15d;
+            --error: #d15656;
+            --glow-primary: 0 0 30px rgba(69, 174, 238, 0.45);
+            --glow-secondary: 0 0 30px rgba(232, 72, 138, 0.40);
+            --glow-accent: 0 0 30px rgba(255, 242, 50, 0.45);
+        }
+        [data-theme="autumn"] {
+            --primary: #8c0327;
+            --secondary: #d85251;
+            --accent: #d59b6a;
+            --neutral: #826a5c;
+            --base-100: #f1f1f1;
+            --base-200: #e4e4e4;
+            --base-300: #d6d6d6;
+            --base-content: #826a5c;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(140, 3, 39, 0.45);
+            --glow-secondary: 0 0 30px rgba(216, 82, 81, 0.40);
+            --glow-accent: 0 0 30px rgba(213, 155, 106, 0.40);
+        }
+        [data-theme="business"] {
+            --primary: #1c4e80;
+            --secondary: #7c909a;
+            --accent: #ea6947;
+            --neutral: #23282e;
+            --base-100: #202020;
+            --base-200: #1a1a1a;
+            --base-300: #141414;
+            --base-content: #d5d5d5;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(28, 78, 128, 0.45);
+            --glow-secondary: 0 0 30px rgba(124, 144, 154, 0.35);
+            --glow-accent: 0 0 30px rgba(234, 105, 71, 0.45);
+        }
+        [data-theme="acid"] {
+            --primary: #ff00ff;
+            --secondary: #ff7f00;
+            --accent: #c4ff00;
+            --neutral: #150f82;
+            --base-100: #fafafa;
+            --base-200: #ebebeb;
+            --base-300: #dbdbdb;
+            --base-content: #111111;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 40px rgba(255, 0, 255, 0.60);
+            --glow-secondary: 0 0 40px rgba(255, 127, 0, 0.55);
+            --glow-accent: 0 0 40px rgba(196, 255, 0, 0.55);
+        }
+        [data-theme="lemonade"] {
+            --primary: #519903;
+            --secondary: #e9e92e;
+            --accent: #f7f9ca;
+            --neutral: #191a3f;
+            --base-100: #ffffff;
+            --base-200: #f2f2f2;
+            --base-300: #e6e6e6;
+            --base-content: #191a3f;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 30px rgba(81, 153, 3, 0.45);
+            --glow-secondary: 0 0 30px rgba(233, 233, 46, 0.40);
+            --glow-accent: 0 0 30px rgba(247, 249, 202, 0.35);
+        }
+        [data-theme="night"] {
+            --primary: #38bdf8;
+            --secondary: #818cf8;
+            --accent: #f472b6;
+            --neutral: #1e293b;
+            --base-100: #0f172a;
+            --base-200: #020617;
+            --base-300: #000000;
+            --base-content: #f8fafc;
+            --info: #0ea5e9;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 35px rgba(56, 189, 248, 0.50);
+            --glow-secondary: 0 0 35px rgba(129, 140, 248, 0.45);
+            --glow-accent: 0 0 35px rgba(244, 114, 182, 0.45);
+        }
+        [data-theme="coffee"] {
+            --primary: #db924b;
+            --secondary: #263e3f;
+            --accent: #10576d;
+            --neutral: #120c12;
+            --base-100: #20161f;
+            --base-200: #150f14;
+            --base-300: #0a0709;
+            --base-content: #c59f60;
+            --info: #3b82f6;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 30px rgba(219, 146, 75, 0.45);
+            --glow-secondary: 0 0 30px rgba(38, 62, 63, 0.35);
+            --glow-accent: 0 0 30px rgba(16, 87, 109, 0.40);
+        }
+        [data-theme="winter"] {
+            --primary: #047aff;
+            --secondary: #463aa2;
+            --accent: #c148ac;
+            --neutral: #021431;
+            --base-100: #ffffff;
+            --base-200: #f2f6ff;
+            --base-300: #e3e9f5;
+            --base-content: #394e6a;
+            --info: #0ea5e9;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 30px rgba(4, 122, 255, 0.45);
+            --glow-secondary: 0 0 30px rgba(70, 58, 162, 0.40);
+            --glow-accent: 0 0 30px rgba(193, 72, 172, 0.40);
+        }
+        [data-theme="dim"] {
+            --primary: #9ca3af;
+            --secondary: #6b7280;
+            --accent: #4b5563;
+            --neutral: #374151;
+            --base-100: #1f2937;
+            --base-200: #111827;
+            --base-300: #030712;
+            --base-content: #f3f4f6;
+            --info: #3b82f6;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 25px rgba(156, 163, 175, 0.35);
+            --glow-secondary: 0 0 25px rgba(107, 114, 128, 0.30);
+            --glow-accent: 0 0 25px rgba(75, 85, 99, 0.30);
+        }
+        [data-theme="nord"] {
+            --primary: #5e81ac;
+            --secondary: #81a1c1;
+            --accent: #88c0d0;
+            --neutral: #4c566a;
+            --base-100: #2e3440;
+            --base-200: #242933;
+            --base-300: #1a1d24;
+            --base-content: #d8dee9;
+            --info: #3b82f6;
+            --success: #a3be8c;
+            --warning: #ebcb8b;
+            --error: #bf616a;
+            --glow-primary: 0 0 30px rgba(94, 129, 172, 0.40);
+            --glow-secondary: 0 0 30px rgba(129, 161, 193, 0.35);
+            --glow-accent: 0 0 30px rgba(136, 192, 208, 0.35);
+        }
+        [data-theme="sunset"] {
+            --primary: #ff865b;
+            --secondary: #fd6f9c;
+            --accent: #b387fa;
+            --neutral: #1b1626;
+            --base-100: #120c18;
+            --base-200: #0a070e;
+            --base-300: #040306;
+            --base-content: #f6f3f9;
+            --info: #3b82f6;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 35px rgba(255, 134, 91, 0.50);
+            --glow-secondary: 0 0 35px rgba(253, 111, 156, 0.45);
+            --glow-accent: 0 0 35px rgba(179, 135, 250, 0.45);
+        }
+        [data-theme="caramellatte"] {
+            --primary: #d18f50;
+            --secondary: #8e6844;
+            --accent: #b25828;
+            --neutral: #3b2c23;
+            --base-100: #faeedc;
+            --base-200: #f3dfc6;
+            --base-300: #e6cdb2;
+            --base-content: #4a3424;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(209, 143, 80, 0.40);
+            --glow-secondary: 0 0 25px rgba(142, 104, 68, 0.35);
+            --glow-accent: 0 0 25px rgba(178, 88, 40, 0.40);
+        }
+        [data-theme="abyss"] {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #90e0ef;
+            --neutral: #03045e;
+            --base-100: #000000;
+            --base-200: #000814;
+            --base-300: #001233;
+            --base-content: #ffffff;
+            --info: #3b82f6;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --glow-primary: 0 0 35px rgba(0, 119, 182, 0.50);
+            --glow-secondary: 0 0 35px rgba(0, 180, 216, 0.45);
+            --glow-accent: 0 0 35px rgba(144, 224, 239, 0.45);
+        }
+        [data-theme="silk"] {
+            --primary: #ffc2d4;
+            --secondary: #ffb5a7;
+            --accent: #fcd5ce;
+            --neutral: #e8e8e4;
+            --base-100: #f8edeb;
+            --base-200: #fae1dd;
+            --base-300: #fec5bb;
+            --base-content: #6d6875;
+            --info: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --error: #dc2626;
+            --glow-primary: 0 0 25px rgba(255, 194, 212, 0.35);
+            --glow-secondary: 0 0 25px rgba(255, 181, 167, 0.30);
+            --glow-accent: 0 0 25px rgba(252, 213, 206, 0.30);
+        }
+
+        /* ==========================================================================
+           🌈 RAINBOW THEME — Overrides all text with rainbow cycle
+           ========================================================================== */
+        [data-theme="rainbow"] {
+            --primary: #ff0000;
+            --secondary: #00ff00;
+            --accent: #0000ff;
+            --neutral: #1a1a1a;
+            --base-100: #0f0f12;
+            --base-200: #1a1a22;
+            --base-300: #2a2a35;
+            --base-content: #f0f0f5;
+            --glow-primary: 0 0 30px rgba(255, 0, 0, 0.5);
+            --glow-secondary: 0 0 30px rgba(0, 255, 0, 0.5);
+            --glow-accent: 0 0 30px rgba(0, 0, 255, 0.5);
+        }
+
+        /* Apply rainbow animation to all text elements & icons when Rainbow theme is active */
+        [data-theme="rainbow"] .glow-title,
+        [data-theme="rainbow"] .badge,
+        [data-theme="rainbow"] .nav-item.active span,
+        [data-theme="rainbow"] .heading-pulse,
+        [data-theme="rainbow"] .heading-breath,
+        [data-theme="rainbow"] .heading-shimmer,
+        [data-theme="rainbow"] .heading-flow,
+        [data-theme="rainbow"] .heading-sparkle,
+        [data-theme="rainbow"] .glow-text-pulse,
+        [data-theme="rainbow"] .glow-text-breath,
+        [data-theme="rainbow"] .glow-text-shimmer,
+        [data-theme="rainbow"] .glow-text-flow,
+        [data-theme="rainbow"] .glow-text-sparkle,
+        [data-theme="rainbow"] .glow-text-neon,
+        [data-theme="rainbow"] .glow-text-rainbow,
+        [data-theme="rainbow"] .demo-text,
+        [data-theme="rainbow"] .theme-swatch .swatch-label,
+        [data-theme="rainbow"] .color-picker-row label,
+        [data-theme="rainbow"] .app-header .logo i,
+        [data-theme="rainbow"] .app-bottom-nav .nav-item.active i,
+        [data-theme="rainbow"] .section-title i,
+        [data-theme="rainbow"] .demo-badge.glow,
+        [data-theme="rainbow"] .demo-badge.glow-secondary,
+        [data-theme="rainbow"] .demo-badge.glow-accent,
+        [data-theme="rainbow"] .demo-btn,
+        [data-theme="rainbow"] .demo-btn.secondary,
+        [data-theme="rainbow"] .demo-btn.accent {
+            animation: textRainbow 5s linear infinite !important;
+            color: #ff0000 !important;
+            text-shadow: 0 0 20px #ff0000, 0 0 60px #ff0000 !important;
+            -webkit-text-fill-color: initial !important;
+            background: none !important;
+            background-clip: initial !important;
+            border-color: #ff0000 !important;
+            box-shadow: 0 0 30px #ff0000 !important;
+        }
+
+        /* Rainbow theme specific overrides for buttons and badges */
+        [data-theme="rainbow"] .demo-btn {
+            background: transparent !important;
+            border: 2px solid #ff0000 !important;
+        }
+        [data-theme="rainbow"] .demo-btn.secondary {
+            border-color: #00ff00 !important;
+            box-shadow: 0 0 30px #00ff00 !important;
+        }
+        [data-theme="rainbow"] .demo-btn.accent {
+            border-color: #0000ff !important;
+            box-shadow: 0 0 30px #0000ff !important;
+        }
+        [data-theme="rainbow"] .demo-badge.glow {
+            background: transparent !important;
+            border: 1px solid #ff0000 !important;
+        }
+        [data-theme="rainbow"] .demo-badge.glow-secondary {
+            background: transparent !important;
+            border: 1px solid #00ff00 !important;
+        }
+        [data-theme="rainbow"] .demo-badge.glow-accent {
+            background: transparent !important;
+            border: 1px solid #0000ff !important;
+        }
+        [data-theme="rainbow"] .glow-card {
+            background: var(--base-200) !important;
+            border-color: #333 !important;
+        }
+
+        /* ==========================================================================
+           ADDED: ANIMATED RAINBOW EFFECT FOR THE SETTINGS DROPDOWN (when Rainbow theme is active)
+           ========================================================================== */
+        .rainbow-select {
+            animation: rainbowGlow 2s linear infinite !important;
+            color: #ffffff !important;
+            font-weight: bold !important;
+            border: 2px solid !important;
+            border-radius: var(--md-shape-sm) !important;
+            transition: none !important;
+        }
+        @keyframes rainbowGlow {
+            0%   { box-shadow: 0 0 5px #ff0000, 0 0 15px #ff0000; border-color: #ff0000; }
+            16%  { box-shadow: 0 0 5px #ff8800, 0 0 15px #ff8800; border-color: #ff8800; }
+            33%  { box-shadow: 0 0 5px #ffff00, 0 0 15px #ffff00; border-color: #ffff00; }
+            50%  { box-shadow: 0 0 5px #00ff00, 0 0 15px #00ff00; border-color: #00ff00; }
+            66%  { box-shadow: 0 0 5px #0088ff, 0 0 15px #0088ff; border-color: #0088ff; }
+            83%  { box-shadow: 0 0 5px #8800ff, 0 0 15px #8800ff; border-color: #8800ff; }
+            100% { box-shadow: 0 0 5px #ff0000, 0 0 15px #ff0000; border-color: #ff0000; }
+        }
+
+        /* ==========================================================================
+           ADDED: MISSING KEYFRAMES FOR textRainbow (reference for the rainbow text animation)
+           ========================================================================== */
+        @keyframes textRainbow {
+            0%   { color: #ff0000; text-shadow: 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            17%  { color: #ff8800; text-shadow: 0 0 20px #ff8800, 0 0 60px #ff8800; }
+            33%  { color: #ffff00; text-shadow: 0 0 20px #ffff00, 0 0 60px #ffff00; }
+            50%  { color: #00ff00; text-shadow: 0 0 20px #00ff00, 0 0 60px #00ff00; }
+            67%  { color: #0088ff; text-shadow: 0 0 20px #0088ff, 0 0 60px #0088ff; }
+            83%  { color: #8800ff; text-shadow: 0 0 20px #8800ff, 0 0 60px #8800ff; }
+            100% { color: #ff0000; text-shadow: 0 0 20px #ff0000, 0 0 60px #ff0000; }
+        }
+
+        /* ================================================================
+        JAVASCRIPT
+        ================================================================ */
+        <script>
+        (function() {
+            'use strict';
+
+            // ── THEME SYSTEM (33 + Rainbow + Custom) ──
+            const THEMES = [
+                'corporate', 'cupcake', 'bumblebee', 'emerald', 'synthwave',
+                'retro', 'cyberpunk', 'valentine', 'halloween', 'garden',
+                'forest', 'aqua', 'lofi', 'pastel', 'fantasy',
+                'wireframe', 'black', 'luxury', 'dracula', 'cmyk',
+                'autumn', 'business', 'acid', 'lemonade', 'night',
+                'coffee', 'winter', 'dim', 'nord', 'sunset',
+                'caramellatte', 'abyss', 'silk', 'rainbow', 'custom'
+            ];
+
+            const THEME_SWATCHES = {
+                corporate: ['#4b6bfb', '#7b92b2', '#67cba0', '#181a2a'],
+                cupcake: ['#65c3c8', '#ef9fbc', '#eeaf3a', '#291334'],
+                bumblebee: ['#e0a82e', '#f9d72f', '#181830', '#181830'],
+                emerald: ['#66cc8a', '#377cfb', '#ea5234', '#333c4d'],
+                synthwave: ['#e779c1', '#58c7f3', '#f3cc30', '#20134e'],
+                retro: ['#ef9995', '#a4cbb4', '#ebdc99', '#7d7259'],
+                cyberpunk: ['#ff7598', '#75d1f0', '#c07eec', '#423f00'],
+                valentine: ['#e96d7b', '#a991f7', '#88dbdd', '#af4670'],
+                halloween: ['#f28c18', '#6d3a9c', '#51a800', '#1b1d1d'],
+                garden: ['#5c7f67', '#ecf4e7', '#fae5e5', '#5d5656'],
+                forest: ['#1eb854', '#1fd65f', '#d99330', '#110e0e'],
+                aqua: ['#09ecf3', '#966fb3', '#ffe999', '#3b8ea5'],
+                lofi: ['#808080', '#4d4d4d', '#1a1a1a', '#000000'],
+                pastel: ['#d1c1d7', '#f6cbd1', '#b4e9d6', '#70acc7'],
+                fantasy: ['#6e0b75', '#007ebd', '#f8860d', '#1f2937'],
+                wireframe: ['#b8b8b8', '#b8b8b8', '#b8b8b8', '#ebebeb'],
+                black: ['#333333', '#333333', '#333333', '#141414'],
+                luxury: ['#ffffff', '#152747', '#513448', '#331800'],
+                dracula: ['#ff79c6', '#bd93f9', '#ffb86c', '#414558'],
+                cmyk: ['#45aeee', '#e8488a', '#fff232', '#1a1a1a'],
+                autumn: ['#8c0327', '#d85251', '#d59b6a', '#826a5c'],
+                business: ['#1c4e80', '#7c909a', '#ea6947', '#23282e'],
+                acid: ['#ff00ff', '#ff7f00', '#c4ff00', '#150f82'],
+                lemonade: ['#519903', '#e9e92e', '#f7f9ca', '#191a3f'],
+                night: ['#38bdf8', '#818cf8', '#f472b6', '#1e293b'],
+                coffee: ['#db924b', '#263e3f', '#10576d', '#120c12'],
+                winter: ['#047aff', '#463aa2', '#c148ac', '#021431'],
+                dim: ['#9ca3af', '#6b7280', '#4b5563', '#374151'],
+                nord: ['#5e81ac', '#81a1c1', '#88c0d0', '#4c566a'],
+                sunset: ['#ff865b', '#fd6f9c', '#b387fa', '#1b1626'],
+                caramellatte: ['#d18f50', '#8e6844', '#b25828', '#3b2c23'],
+                abyss: ['#0077b6', '#00b4d8', '#90e0ef', '#03045e'],
+                silk: ['#ffc2d4', '#ffb5a7', '#fcd5ce', '#e8e8e4'],
+                rainbow: ['#ff0000', '#00ff00', '#0000ff', '#1a1a1a'],
+                custom: ['#888888', '#666666', '#444444', '#222222']
+            };
+
+            let currentTheme = 'corporate';
+            let glowIntensity = 1;
+            let glowEnabled = true;
+            let rainbowInterval = null;
+
+            // ── RAINBOW RANDOMIZER (upgrade: truly random animated colours) ──
+            function startRainbowRandomizer() {
+                stopRainbowRandomizer();
+
+                // Apply animated glow to the Settings dropdown
+                const sel = document.getElementById('themeAppearanceSelect');
+                if (sel) sel.classList.add('rainbow-select');
+
+                // Randomise CSS variables every 1.5 seconds
+                rainbowInterval = setInterval(() => {
+                    const root = document.documentElement;
+                    const h1 = Math.floor(Math.random() * 360);
+                    const h2 = (h1 + 120) % 360;
+                    const h3 = (h1 + 240) % 360;
+                    const primary = `hsl(${h1}, 90%, 60%)`;
+                    const secondary = `hsl(${h2}, 80%, 55%)`;
+                    const accent = `hsl(${h3}, 85%, 65%)`;
+
+                    root.style.setProperty('--primary', primary);
+                    root.style.setProperty('--secondary', secondary);
+                    root.style.setProperty('--accent', accent);
+                    root.style.setProperty('--glow-primary', `0 0 30px ${primary}40`);
+                    root.style.setProperty('--glow-secondary', `0 0 30px ${secondary}40`);
+                    root.style.setProperty('--glow-accent', `0 0 30px ${accent}40`);
+
+                    // Update Material 3 variables
+                    root.style.setProperty('--md-primary', primary);
+                    root.style.setProperty('--md-secondary', secondary);
+                    root.style.setProperty('--md-tertiary', accent);
+                }, 1500);
+            }
+
+            function stopRainbowRandomizer() {
+                if (rainbowInterval) {
+                    clearInterval(rainbowInterval);
+                    rainbowInterval = null;
+                }
+                const sel = document.getElementById('themeAppearanceSelect');
+                if (sel) sel.classList.remove('rainbow-select');
+            }
+
+            // ── THEME ENGINE (patched to use randomizer) ──
+            const ThemeEngine = {
+                init(options = {}) {
+                    const savedTheme = localStorage.getItem('hexai_theme_appearance') || 'corporate';
+                    const sel = document.getElementById('themeAppearanceSelect');
+                    if (sel) {
+                        sel.value = savedTheme;
+                        this.applyThemeAppearance(savedTheme);
+                    }
+                },
+
+                applyThemeAppearance(theme) {
+                    const root = document.documentElement;
+                    // Stop rainbow if switching away
+                    stopRainbowRandomizer();
+
+                    if (theme === 'custom') {
+                        // Custom is handled separately via color picker
+                        // fallback to corporate if no custom data
+                        root.setAttribute('data-theme', 'custom');
+                        // ... (custom logic is outside, but we'll keep it minimal)
+                    } else if (theme === 'rainbow') {
+                        // Set base rainbow colours, then start the randomizer
+                        root.setAttribute('data-theme', 'rainbow');
+                        // Reset inline styles to let CSS variables take over from :root
+                        root.style.removeProperty('--primary');
+                        root.style.removeProperty('--secondary');
+                        root.style.removeProperty('--accent');
+                        root.style.removeProperty('--glow-primary');
+                        root.style.removeProperty('--glow-secondary');
+                        root.style.removeProperty('--glow-accent');
+                        root.style.removeProperty('--md-primary');
+                        root.style.removeProperty('--md-secondary');
+                        root.style.removeProperty('--md-tertiary');
+                        // Start the random animated colour cycle
+                        startRainbowRandomizer();
+                    } else {
+                        root.setAttribute('data-theme', theme);
+                        // Clear any residual inline styles
+                        root.style.removeProperty('--primary');
+                        root.style.removeProperty('--secondary');
+                        root.style.removeProperty('--accent');
+                        root.style.removeProperty('--glow-primary');
+                        root.style.removeProperty('--glow-secondary');
+                        root.style.removeProperty('--glow-accent');
+                        root.style.removeProperty('--md-primary');
+                        root.style.removeProperty('--md-secondary');
+                        root.style.removeProperty('--md-tertiary');
+                        // Re-sync swatches
+                    }
+                    localStorage.setItem('hexai_theme_appearance', theme);
+                    // sync swatches
+                    document.querySelectorAll('.swatch').forEach(s => {
+                        s.classList.toggle('active', s.dataset.theme === theme);
+                    });
+                    const sel = document.getElementById('themeAppearanceSelect');
+                    if (sel) sel.value = theme;
+                }
+            };
+
+            // Expose to global
+            window.ThemeEngine = ThemeEngine;
+            window.startRainbowRandomizer = startRainbowRandomizer;
+            window.stopRainbowRandomizer = stopRainbowRandomizer;
+        })();
+        </script>
+    </style>
+
+    <!-- ===== THEME OVERRIDES FOR MATERIAL 3 VARIABLES ===== -->
+    <style>
         [data-theme] {
             --md-primary: var(--primary);
             --md-on-primary: #ffffff;
@@ -616,8 +2051,10 @@
             --ui-play-radius: var(--radius);
             --ui-scanline: transparent;
         }
+    </style>
 
-        /* ===== REST OF THE ORIGINAL APP CSS ===== */
+    <!-- ===== REST OF THE ORIGINAL APP CSS ===== -->
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -4173,8 +5610,7 @@
                             <strong>Configure API keys</strong> in Settings (⚙) to unlock all features.<br />
                             <span style="font-size:0.8rem;color:var(--md-on-surface-variant);">
                                 💡 Attach images and Gemini will analyze them! <br>
-                                Each message now has <strong>Copy</strong>, <strong>Share</strong>, and
-                                <strong>Delete</strong> buttons.<br>
+                                Each message now has <strong>Copy</strong>, <strong>Share</strong>, and <strong>Delete</strong> buttons.<br>
                                 ♫ In the Music player, click <strong>Analyze</strong> to get a summary, or use the <strong>Summarizer</strong> tab for any video.
                             </span>
                         </div>
@@ -4384,7 +5820,7 @@
                             </div>
                         </div>
 
-                        <!-- ===== LYRICS CONTAINER (Enhanced with Karaoke) ===== -->
+                        <!-- LYRICS CONTAINER -->
                         <div id="lyricsContainer">
                             <div id="lyricsHeader">
                                 <h6 id="lyricsTitle"><i class="fas fa-file-alt"></i> Lyrics</h6>
@@ -4425,7 +5861,7 @@
                     </div>
                 </div>
 
-                <!-- ===== OFFLINE MP3 SECTION (upgraded with fixed repeat/shuffle) ===== -->
+                <!-- OFFLINE MP3 SECTION -->
                 <div class="music-section" id="offline-section">
                     <div class="offline-container">
                         <div class="offline-upload-area" id="offlineUploadArea">
@@ -4479,7 +5915,6 @@
                             </button>
                         </div>
 
-                        <!-- Progress Bar (re‑used from previous layout) -->
                         <div class="offline-progress-container">
                             <div class="offline-progress-bar" id="offlineProgressBar">
                                 <div class="offline-progress-fill" id="offlineProgressFill"></div>
@@ -4490,14 +5925,12 @@
                             </div>
                         </div>
 
-                        <!-- Volume -->
                         <div class="offline-volume-container">
                             <i class="fa-solid fa-volume-low" id="offlineVolumeIcon"></i>
                             <input type="range" class="offline-volume-slider" id="offlineVolumeSlider" min="0" max="100" value="50" />
                             <i class="fa-solid fa-volume-high"></i>
                         </div>
 
-                        <!-- Visualizer Toggle & Controls -->
                         <div class="offline-visualizer-container">
                             <button class="md-icon-button" id="offlineVizToggleBtn" title="Toggle Visualizer">
                                 <i class="fa-solid fa-chart-simple"></i>
@@ -4533,7 +5966,6 @@
                             </div>
                         </div>
 
-                        <!-- Playlist -->
                         <div class="offline-playlist" id="offlinePlaylistContainer">
                             <div class="offline-playlist-title"><i class="fas fa-list"></i> Playlist</div>
                             <div id="offlinePlaylistItems"></div>
@@ -4615,11 +6047,13 @@
                     <option value="caramellatte">Caramel Latte</option>
                     <option value="abyss">Abyss</option>
                     <option value="silk">Silk</option>
+                    <option value="rainbow">🌈 Rainbow</option>
+                    <option value="custom">🎨 Custom</option>
                 </select>
-                <div class="settings-note">Click a swatch to instantly change the theme.</div>
+                <div class="settings-note">Click a swatch to instantly change the theme. Rainbow mode now has **random animated colours**!</div>
             </div>
 
-            <!-- DARK / LIGHT MODE (kept as requested) -->
+            <!-- DARK / LIGHT MODE -->
             <div class="settings-section">
                 <div class="section-title"><i class="fas fa-adjust"></i> Dark / Light Mode</div>
                 <select id="themeSelect">
@@ -4629,7 +6063,7 @@
                 </select>
             </div>
 
-            <!-- COLOR CUSTOMIZER (replaces dark/light toggle per user request) -->
+            <!-- COLOR CUSTOMIZER -->
             <div class="settings-section">
                 <div class="section-title"><i class="fas fa-paint-brush"></i> Custom Colors</div>
                 <div class="color-customizer" id="colorCustomizer">
@@ -4918,6 +6352,9 @@
     <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer>
     </script>
 
+    <!-- =============================================================
+    YOUR ORIGINAL JAVASCRIPT (FULL, UNTOUCHED)
+    ============================================================= -->
     <script>
         // =============================================================
         //  THEME ENGINE – Complete with all presets
